@@ -43,3 +43,44 @@ def get_restaurant_pizzas():
             return make_response({"error": "Invalid restaurant or pizza ID"}, 400)
 
         return make_response(new_restaurant_pizza.to_dict(), 201)
+@restaurant_pizza.route('restaurant_pizzas/<int:id>', methods = ['GET', 'PATCH', 'DELETE'])
+def get_rp_by_id(id):
+    restaurant_pizza = RestaurantPizza.query.filter(RestaurantPizza.id == id).first()
+
+    if not restaurant_pizza:
+        return make_response({"error": "Restaurant Pizza not found"}, 400)
+    
+    if request.method == 'GET':
+        response = make_response(
+            restaurant_pizza.to_dict(),
+            200
+        )
+        return response
+    
+    elif request.method == 'PATCH':
+        for attr in request.form:
+            setattr(restaurant_pizza, attr, request.form.get(attr))
+        db.session.add(restaurant_pizza)
+        db.session.commit()
+
+        response = make_response(
+            restaurant_pizza.to_dict(),
+            200
+        )
+        return response
+    
+    elif request.method == 'DELETE':
+        db.session.delete(restaurant_pizza)
+        db.session.commit()
+
+        response_body = {
+            "delete_successful": True,
+            "message": "No content"
+        }
+
+        response = make_response(
+            response_body,
+            204
+        )
+        return response
+
