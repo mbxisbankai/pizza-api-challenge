@@ -175,6 +175,83 @@ Host: localhost:5555
   "message": "No Content."
 }
 ```
+### Pizzas
+`GET /pizzas`
+**Request**
+```http
+GET /pizzas HTTP/1.1
+Host: localhost:5555
+```
+
+**Response**
+```json
+[
+  {
+    "id": 1,
+    "name": "Pepperoni",
+    "ingredients": "Dough, Tomato Sauce, Cheese, Pepperoni"
+  },
+  {
+    "id": 2,
+    "name": "Veggie",
+    "ingredients": "Dough, Tomato Sauce, Cheese, Vegetables"
+  }
+]
+```
+### Restaurant Pizzas
+`GET /restaurant_pizzas`
+**Request**
+```http
+GET /restaurant_pizzas HTTP/1.1
+Host: localhost:5555
+```
+
+**Response**
+```json
+[
+  {
+    "id": 1,
+    "price": 10,
+    "pizza": {
+      "id": 1,
+      "name": "Pepperoni",
+      "ingredients": "Dough, Tomato Sauce, Cheese, Pepperoni"
+    },
+    "restaurant": {
+      "id": 1,
+      "name": "Domino's",
+      "address": "123 Pizza Street"
+    }
+  }
+]
+```
+`POST /restaurant_pizzas`
+**Request**
+```http
+POST /restaurant_pizzas HTTP/1.1
+Host: localhost:5555
+Content-Type: application/x-www-form-urlencoded
+
+price=12&pizza_id=1&restaurant_id=2
+```
+
+**Response**
+```json
+{
+  "id": 2,
+  "price": 12,
+  "pizza": {
+    "id": 1,
+    "name": "Pepperoni",
+    "ingredients": "Dough, Tomato Sauce, Cheese, Pepperoni"
+  },
+  "restaurant": {
+    "id": 2,
+    "name": "Pizza Hut",
+    "address": "456 Cheese Avenue"
+  }
+}
+```
 
 
 ## ✅ Validation Rules
