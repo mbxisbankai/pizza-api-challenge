@@ -43,7 +43,7 @@ def get_restaurant_pizzas():
             return make_response({"error": "Invalid restaurant or pizza ID"}, 400)
 
         return make_response(new_restaurant_pizza.to_dict(), 201)
-@restaurant_pizza.route('restaurant_pizzas/<int:id>', methods = ['GET', 'PATCH', 'DELETE'])
+@restaurant_pizza.route('/restaurant_pizzas/<int:id>', methods = ['GET', 'PATCH', 'DELETE'])
 def get_rp_by_id(id):
     restaurant_pizza = RestaurantPizza.query.filter(RestaurantPizza.id == id).first()
 

@@ -11,6 +11,8 @@ sqlalchemy-serializer = "*"
 sqlalchemy = "*"
 python-dotenv = "*"
 psycopg2-binary = "*"
+pytest = "*"
+faker = "*"
 
 [dev-packages]
 
