@@ -79,6 +79,103 @@ A Flask-based RESTful API that allows you to manage restaurants, pizzas, and the
 | PATCH  | `/restaurants_pizzas/<id>`     | Update restaurant pizza by ID |
 | DELETE | `/restaurants_pizzas/<id>`     | Delete restaurant pizza by ID |
 
+## 📬 Example Requests & Responses
+### Restaurant
+`GET /restaurants`
+**Request**
+```http
+GET /restaurants HTTP/1.1
+Host: localhost:5555
+```
+
+**Response**
+```json
+[
+  {
+    "id": 1,
+    "name": "Domino's",
+    "address": "123 Pizza Street"
+  },
+  {
+    "id": 2,
+    "name": "Pizza Hut",
+    "address": "456 Cheese Avenue"
+  }
+]
+```
+`POST /restaurants`
+**Request**
+```http
+POST /restaurants HTTP/1.1
+Host: localhost:5555
+Content-Type: application/x-www-form-urlencoded
+
+name=New Pizza Place&address=789 Crust Blvd
+```
+
+**Response**
+```json
+{
+  "id": 3,
+  "name": "New Pizza Place",
+  "address": "789 Crust Blvd"
+}
+```
+`GET /restaurants/<id>`
+**Request**
+```http
+GET /restaurants/1 HTTP/1.1
+Host: localhost:5555
+```
+
+**Response**
+```json
+{
+  "id": 1,
+  "name": "Domino's",
+  "address": "123 Pizza Street",
+  "pizzas": [
+    {
+      "id": 1,
+      "name": "Pepperoni",
+      "ingredients": "Dough, Tomato Sauce, Cheese, Pepperoni"
+    }
+  ]
+}
+```
+`PATCH /restaurants/<id>`
+**Request**
+```http
+PATCH /restaurants/1 HTTP/1.1
+Host: localhost:5555
+Content-Type: application/x-www-form-urlencoded
+
+name=Updated Pizza Place
+```
+
+**Response**
+```json
+{
+  "id": 1,
+  "name": "Updated Pizza Place",
+  "address": "123 Pizza Street"
+}
+```
+`DELETE /restaurants/<id>`
+**Request**
+```http
+DELETE /restaurants/1 HTTP/1.1
+Host: localhost:5555
+```
+
+**Response**
+```json
+{
+  "delete_successful": true,
+  "message": "No Content."
+}
+```
+
 
 ## ✅ Validation Rules
 - price in /restaurant_pizzas must be between 1 and 30.
