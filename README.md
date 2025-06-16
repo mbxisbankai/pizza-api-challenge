@@ -52,7 +52,7 @@ A Flask-based RESTful API that allows you to manage restaurants, pizzas, and the
 
 
 ## Route Summary
-# Restaurants
+### Restaurants
 | Method | Endpoint                | Description                  |
 |--------|-------------------------|------------------------------|
 | GET    | `/restaurants`          | Get all restaurants          |
@@ -61,7 +61,7 @@ A Flask-based RESTful API that allows you to manage restaurants, pizzas, and the
 | PATCH  | `/restaurants/<id>`     | Update restaurant by ID      |
 | DELETE | `/restaurants/<id>`     | Delete restaurant by ID      |
 
-# Pizzas
+### Pizzas
 | Method | Endpoint                | Description                   |
 |--------|-------------------------|-------------------------------|
 | GET    | `/pizzas`               | Get all pizzas                |
@@ -70,7 +70,7 @@ A Flask-based RESTful API that allows you to manage restaurants, pizzas, and the
 | PATCH  | `/pizzas/<id>`          | Update a pizza by ID          |
 | DELETE | `/pizzas/<id>`          | Delete a pizza by ID          |
 
-# Restaurant Pizzas
+### Restaurant Pizzas
 | Method | Endpoint                       | Description                   |
 |--------|--------------------------------|-------------------------------|
 | GET    | `/restaurants_pizzas`          | Get all restaurant pizzas     |
@@ -95,7 +95,7 @@ A Flask-based RESTful API that allows you to manage restaurants, pizzas, and the
        "error": "Invalid restaurant or pizza ID"
     }
     ```
-    
+
 ## Postman Usage Instructions
 1. Import endpoints manually or paste in the base URL:
    ```
