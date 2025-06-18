@@ -1,6 +1,5 @@
 from flask import Flask
 from flask_migrate import Migrate
-from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import MetaData
 from dotenv import load_dotenv
 import os
@@ -32,6 +31,8 @@ app.register_blueprint(restaurant_pizza)
 
 db.init_app(app)
 migrate.init_app(app, db)
+
+from server import models
 
 if __name__ == "__main__":
     app.run(debug=True, port=5555)

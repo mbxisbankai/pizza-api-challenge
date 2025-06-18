@@ -1,5 +1,5 @@
 from flask import Blueprint, make_response, request
-from server.models.restaurant_pizza import RestaurantPizza
+from ..models import RestaurantPizza
 from server.db import db
 from sqlalchemy.exc import IntegrityError
 
